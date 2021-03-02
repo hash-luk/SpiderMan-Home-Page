@@ -1,0 +1,182 @@
+header {
+    width: 100%;
+    padding: 16px 0;
+}
+
+.navbar {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    max-width: 90px;
+
+    path{
+        transition: .5s ease;
+    }
+
+    &:hover {
+        path{
+            fill: $dark-red
+        }
+    }
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+
+    li{
+        margin-left: 24px;
+    }
+
+    @include responsive(){
+        display: none;
+    }
+}
+
+.nav-link {
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 200;
+    position: relative;
+    color: $dark-gray;
+
+    transition: .7s ease;
+
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: -60px;
+        width: 2px;
+        height: 0px;
+        background: linear-gradient(180deg, rgba(234, 29, 34, 0) 0%,$medium-red );
+        transition: .5s ease-in;
+    }
+
+    &:hover {
+        color: $gray-white;
+
+        &::after{
+            height: 59.5px;
+        }
+    }
+}
+
+.bx {
+
+    width: 48px;
+    height: 10px;
+    background:transparent;
+    border-radius: 30px;
+    display: none;
+    position: relative;
+    margin-bottom:20px ;
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 70%;
+        height: 8px;
+        background: $ice-white;
+        border-radius: 20px;
+        top: 0;
+        left: 0;
+        transition: .7s ease-in-out;
+
+
+        @include responsive() {
+            display: block;
+        }
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 50%;
+        height: 8px;
+        background: $ice-white;
+        border-radius: 20px;
+        top: 200%;
+        left: 0;
+        transition: .7s ease-in-out;
+
+        @include responsive() {
+            display: block;
+        }
+    }
+
+    @include responsive() {
+        display: block;
+    }
+}
+
+#bx:checked ~ label .bx:after {
+    transform: rotate(225deg);
+    top: 5px;
+    left: 0;
+    background: $light-red;
+}
+
+#bx:checked ~ label .bx:before{
+    transform: rotate(-225deg);
+    width: 70%;
+    height: 8px;
+    top: 5px;
+    left: 0;
+    background: $light-red;
+}
+
+
+
+.nav-social-media{
+    display: flex;
+    margin-left: 500px;
+
+    svg {
+        cursor: pointer;
+        margin-left: 16px;
+        width: 25px;
+
+        path,circle {
+            transition: .5s ease;
+        }
+
+        &:hover{
+            path,circle{
+                fill: $light-red;
+                transform: translate3d(0,-3px,0);
+            }
+        }
+    }
+    @include responsive(){
+        display: none;
+    }
+}
+
+.beyourself {
+    color: #981014;
+
+    &:hover {
+        color: $light-red;
+    }
+}
+
